@@ -10,7 +10,7 @@ export function ProductsPage() {
   const getProductsByCategoryId = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/products?cat={catId}"
+        `http://localhost:3001/products?cat=${catId}`
       );
       const data = await response.json();
       setProducts(data.data);
