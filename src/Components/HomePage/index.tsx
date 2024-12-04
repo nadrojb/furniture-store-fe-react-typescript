@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CategoriesCard from "../CategoriesCard";
 
-interface categoriesData {
+export interface categoriesData {
   id: number;
   name: string;
   products: number;
@@ -25,6 +25,7 @@ export function HomePage() {
       return (
         <CategoriesCard
           key={category.id}
+          id={category.id}
           name={category.name}
           products={category.products}
           image={category.image}

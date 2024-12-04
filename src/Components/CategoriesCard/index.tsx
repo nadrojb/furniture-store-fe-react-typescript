@@ -1,25 +1,20 @@
 import { Link } from "react-router-dom";
+import { categoriesData } from "../HomePage";
 
-interface categoryCardProps {
-  id: number;
-  name: string;
-  products: number;
-  image: string;
-}
 
 export default function CategoriesCard({
   id,
   name,
   products,
   image,
-}: categoryCardProps) {
+}: categoriesData) {
   return (
     <>
       <div>
         <img src={image} alt={name} />
         <h3>{name}</h3>
         <p>{products}</p>
-        <Link to={`/products/${id}`}></Link>
+        <Link to={`/products/${id}`}>View Products</Link>
       </div>
     </>
   );
