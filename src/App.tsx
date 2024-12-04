@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import CatergoryButton from "./Components/CategoryButton";
 
 interface categoriesData {
   id: number;
@@ -9,26 +10,25 @@ interface categoriesData {
 }
 
 function App() {
-  const [categories, setCategories] = useState<categoriesData>({
-    id: 1,
-    name: "chairs",
-    products: 10,
-    image: "https://placehold.co/600x400/png",
-  });
+  const [categories, setCategories] = useState<categoriesData[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/categories")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log(data.data);
 
-        setCategories(data);
+        setCategories(data.data);
       });
   }, []);
 
-  function renderCategories() {}
+  function renderCategories() {
+    return categories.map((category) => {
+      return <CatergoryButton key={category.id} name={category.name} />;
+    });
+  }
 
-  return <></>;
+  return <>{renderCategories()}</>;
 }
 
 export default App;
