@@ -1,34 +1,23 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import CatergoryButton from "./Components/CategoryButton";
-
-interface categoriesData {
-  id: number;
-  name: string;
-  products: number;
-  image: string;
-}
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Catergories from "./Components/Categories";
 
 function App() {
-  const [categories, setCategories] = useState<categoriesData[]>([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/categories")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data);
-
-        setCategories(data.data);
-      });
-  }, []);
-
-  function renderCategories() {
-    return categories.map((category) => {
-      return <CatergoryButton key={category.id} name={category.name} />;
-    });
-  }
-
-  return <>{renderCategories()}</>;
+  return (
+    <>
+      <BrowserRouter>
+        <Link to="/">Categories</Link>
+        <Link to="products">Products</Link>
+        <Routes>
+          <Route path="/" element={<Catergories />}>
+            Categories
+          </Route>
+          <Route path="products">Products</Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
