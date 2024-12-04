@@ -21,9 +21,19 @@ export default function Catergories() {
 
   function renderCategories() {
     return categories.map((category) => {
-      return <CatergoryCard key={category.id} name={category.name} />;
+      return (
+        <CatergoryCard
+          key={category.id}
+          name={category.name}
+          products={category.products}
+          image={category.image}
+        />
+      );
     });
   }
 
-  return <></>;
+  return;
+  <>
+    <div>{renderCategories()}</div>
+  </>;
 }
