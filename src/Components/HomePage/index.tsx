@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CategoriesCard from "../CategoriesCard";
+
 interface categoriesData {
   id: number;
   name: string;
