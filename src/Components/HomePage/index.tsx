@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import CategoriesCard from "../CategoriesCard";
 interface categoriesData {
   id: number;
   name: string;
@@ -7,7 +7,7 @@ interface categoriesData {
   image: string;
 }
 
-export default function Catergories() {
+export function HomePage() {
   const [categories, setCategories] = useState<categoriesData[]>([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Catergories() {
   function renderCategories() {
     return categories.map((category) => {
       return (
-        <CatergoryCard
+        <CategoriesCard
           key={category.id}
           name={category.name}
           products={category.products}
@@ -32,8 +32,9 @@ export default function Catergories() {
     });
   }
 
-  return;
-  <>
-    <div>{renderCategories()}</div>
-  </>;
+  return (
+    <>
+      <div>{renderCategories()}</div>
+    </>
+  );
 }
