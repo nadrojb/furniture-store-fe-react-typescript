@@ -6,7 +6,7 @@ export interface productCardProps {
   description: string;
 }
 
-export default function ProductsCard({
+export function ProductsCard({
   id,
   stock,
   color,

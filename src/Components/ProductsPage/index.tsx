@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ProductsCard from "../ProductsCard";
+import { ProductsCard } from "../ProductsCard";
 import { productCardProps } from "../ProductsCard";
 
 export function ProductsPage() {
@@ -16,6 +16,7 @@ export function ProductsPage() {
       setProducts(data.data);
       console.log(products);
     } catch (e) {
+      //set error using useState and desplay on render
       console.log("something went wrong");
     }
   };
