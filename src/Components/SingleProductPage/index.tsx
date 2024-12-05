@@ -5,7 +5,7 @@ import SingleProductCard, {
 } from "../SingleProductCard";
 
 export default function SingleProductPage() {
-  const [singleProduct, setSingleProduct] = useState<singleProductCardProps[]>();
+  const [singleProduct, setSingleProduct] = useState<singleProductCardProps>();
   const { productId } = useParams();
 
   const getSingleProduct = async () => {
@@ -14,8 +14,7 @@ export default function SingleProductPage() {
         `http://localhost:3001/product?id=${productId}`
       );
       const data = await response.json();
-      setSingleProduct(data.data);
-      console.log(data.data);
+      setSingleProduct(data.data as singleProductCardProps);
     } catch (e) {
       console.log("something went wrong");
     }
