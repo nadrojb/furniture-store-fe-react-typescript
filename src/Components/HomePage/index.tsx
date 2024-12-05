@@ -8,14 +8,13 @@ export interface categoriesData {
   image: string;
 }
 
-export function HomePage() {
+export default function HomePage() {
   const [categories, setCategories] = useState<categoriesData[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/categories")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.data);
         setCategories(data.data);
       });
   }, []);

@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SingleProductCard from "../SingleProductCard";
 
-export function SingleProductPage() {
+export default function SingleProductPage() {
   const [singleProduct, setSingleProduct] = useState([]);
-  const { id } = useParams();
+  const { productId } = useParams();
 
   const getSingleProduct = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/product?id=${id}`);
+      const response = await fetch(
+        `http://localhost:3001/product?id=${productId}`
+      );
       const data = await response.json();
       setSingleProduct(data.data);
+      console.log(singleProduct);
     } catch (e) {
       console.log("something went wrong");
     }
@@ -17,17 +21,22 @@ export function SingleProductPage() {
 
   useEffect(() => {
     getSingleProduct();
-  }, [id]);
+  }, []);
 
-function renderSingleProduct ()  {
+  function renderSingleProduct() {
     return singleProduct.map((productData) => {
-        return (
-            
-        )
-    })
+      return (
+        <SingleProductCard
+          key={productData.id}
+          id={productData.id}
+          stock={productData.stock}
+          related={productData.related}
+          color={productData.color}
+          image={productData.image}
+          description={productData.description}
+        />
+      );
+    });
+  }
+  return <>{renderSingleProduct()}</>;
 }
-
-
-
-}
-

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ProductsCard } from "../ProductsCard";
-import { productCardProps } from "../ProductsCard";
+import ProductsCard from "../ProductsCard";
 
-export function ProductsPage() {
+export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const { catId } = useParams();
 
@@ -14,7 +13,6 @@ export function ProductsPage() {
       );
       const data = await response.json();
       setProducts(data.data);
-      console.log(products);
     } catch (e) {
       //set error using useState and desplay on render
       console.log("something went wrong");
