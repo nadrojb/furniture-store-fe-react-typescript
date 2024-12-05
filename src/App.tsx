@@ -38,11 +38,11 @@ function App() {
             <input
               type="text"
               placeholder="Search"
-              className="w-2/3 bg-gray-200 py-2 px-2 rounded-l-lg"
+              className="w-2/3 bg-gray-200 py-2 px-2 rounded-l-3xl"
             />
             <input
               type="submit"
-              className="w-1/3 bg-gray-800 text-white py-2 px-2 rounded-r-lg"
+              className="w-1/3 bg-gray-800 text-white py-2 px-2 rounded-r-3xl"
             />
           </form>
         </header>

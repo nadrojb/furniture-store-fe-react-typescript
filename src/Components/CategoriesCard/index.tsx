@@ -13,13 +13,13 @@ export default function CategoriesCard({
   return (
     <>
       <div>
-        <p>Welcome back {username}</p>
+        {/* <p>Welcome back {username}</p> */}
       </div>
-      <div>
-        <img src={image} alt={name} />
-        <h3>{name}</h3>
-        <p>{products}</p>
-        <Link to={`/products/${id}`}>View Products</Link>
+      <div className="w-40 mb-10">
+        <img className=" mb-3" src={image} alt={name} />
+        <h3 className="">{name}</h3>
+        <p className=" pb-3">{products}</p>
+        <Link to={`/products/${id}`} className="bg-slate-800 text-white py-2.5 px-5 rounded-3xl text-sm font-semibold">View</Link>
       </div>
     </>
   );

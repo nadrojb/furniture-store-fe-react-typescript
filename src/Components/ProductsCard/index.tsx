@@ -17,13 +17,12 @@ export default function ProductsCard({
 }: productCardProps) {
   return (
     <>
-      <div>
-        <Link to={`/`}>Back to categories</Link>
-        <img src={image} alt={""} />
-        <p>{stock}</p>
-        <p>{color}</p>
-        <p>{description}</p>
-        <Link to={`/product/${id}`}>View Product</Link>
+      <div className="w-40 mb-10">
+        <img src={image} alt={""} className="mb-10" />
+        <p className="px-1 mb-3" >{stock}</p>
+        <p className="px-1">{color}</p>
+        <p className="px-1 pb-3">{description}</p>
+        <Link to={`/product/${id}`} className="bg-slate-800 text-white py-2.5 px-5 rounded-3xl text-sm font-semibold">View</Link>
       </div>
     </>
   );
