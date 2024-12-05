@@ -58,7 +58,7 @@ export default function ProductsPage() {
           Sofas
         </Link>
       </div>
-      <h1 className="font-mono mb-3 px-5 font-medium text-lg ">Categories</h1>
+      <h1 className="font-mono mb-3 px-5 font-medium text-lg ">Products</h1>
       <div className="w-8 ml-3">
         <Link to={"/"}>
           <img src="../../../public/img/circle-back.svg" alt="" />
