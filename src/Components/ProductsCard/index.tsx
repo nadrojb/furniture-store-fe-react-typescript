@@ -18,6 +18,7 @@ export default function ProductsCard({
   return (
     <>
       <div>
+        <Link to={`/`}>Back to categories</Link>
         <img src={image} alt={""} />
         <p>{stock}</p>
         <p>{color}</p>
