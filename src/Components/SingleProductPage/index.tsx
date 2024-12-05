@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import SingleProductCard from "../SingleProductCard";
+import SingleProductCard, {
+  singleProductCardProps,
+} from "../SingleProductCard";
 
 export default function SingleProductPage() {
-  const [singleProduct, setSingleProduct] = useState([]);
+  const [singleProduct, setSingleProduct] = useState<singleProductCardProps[]>();
   const { productId } = useParams();
 
   const getSingleProduct = async () => {
@@ -13,7 +15,7 @@ export default function SingleProductPage() {
       );
       const data = await response.json();
       setSingleProduct(data.data);
-      console.log(singleProduct);
+      console.log(data.data);
     } catch (e) {
       console.log("something went wrong");
     }
@@ -23,20 +25,9 @@ export default function SingleProductPage() {
     getSingleProduct();
   }, []);
 
-  function renderSingleProduct() {
-    return singleProduct.map((productData) => {
-      return (
-        <SingleProductCard
-          key={productData.id}
-          id={productData.id}
-          stock={productData.stock}
-          related={productData.related}
-          color={productData.color}
-          image={productData.image}
-          description={productData.description}
-        />
-      );
-    });
-  }
-  return <>{renderSingleProduct()}</>;
+  return (
+    <>
+      <SingleProductCard {...singleProduct} />
+    </>
+  );
 }
